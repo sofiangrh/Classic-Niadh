@@ -1,0 +1,590 @@
+# Author: x
+# Theme:  for Ubuntu Hardy/Gnome 2.22 or equivalent.
+# Description: GPL
+
+# NOTE: Uncommenting means to delete the "#" at the beginning of a line. Commenting means to add a "#" at the beginning of a line. The "#" tells the theme wether to ignore the specified line or not.
+
+# These are the defined colors for the theme, you can change them in GNOME's appearance preferences.
+gtk_color_scheme = "fg_color:#1A1A1A\nbg_color:#E7E7E7\nbase_color:#FFFFFF\ntext_color:#1A1A1A\nselected_bg_color:#93C1FF\nselected_fg_color:#1A1A1A\ntooltip_bg_color:#F5F5B5\ntooltip_fg_color:#000"
+
+
+
+##########################
+# GENERAL THEME SETTINGS 
+##########################
+
+style "murrine-default"
+{
+	xthickness = 1
+	ythickness = 1
+
+	GtkButton::child-displacement-x	= 1 # Pressed button icon displacement.
+	GtkButton::child-displacement-y	= 1 # Pressed button icon displacement.
+
+	GtkButton::default-border	= { 0, 0, 0, 0 }
+	GtkCheckButton::indicator-size	= 14 # Size for check buttons.
+	GtkRadioButton::indicator-size	= 14 # Size for radio buttons.
+	GtkPaned::handle-size		= 6 # Width of handles.
+
+	GtkRange::trough-border		= 0 # Change to 0 for normal scrollbars.
+	GtkRange::slider-width		= 16 # Change to 15 for normal scrollbars.
+	GtkRange::stepper-size		= 16 # Change to 15 for normal scrollbars.
+	GtkRange::trough-under-steppers = 0
+
+
+	GtkScale::slider-length		= 16 # Length of sliders.
+	GtkScale::trough-side-details	= 0
+
+	GtkScrollbar::min-slider-length	= 30 # Min. length of scrollbars.
+	GtkScrollbar::has-secondary-backward-stepper	= 1
+
+	GtkMenuBar::internal-padding	= 0
+	GtkExpander::expander-size	= 16
+	GtkToolbar::internal-padding	= 1 # Toolbar padding.
+	GtkTreeView::expander-size	= 14
+	GtkTreeView::vertical-separator	= 0
+
+	GtkMenu::horizontal-padding	= 0
+	GtkMenu::vertical-padding	= 2
+
+	WnckTasklist::fade-overlay-rect	= 0
+	GtkEntry::honors-transparent-bg-hint = 1
+
+	#GtkButton::focus-padding	= 0 # This can give you a more compact appearance.
+  	GtkScrolledWindow::scrollbar-spacing	= 2 # This sets the spacing between scrollbars.
+	GtkTreeView::odd_row_color	= mix(0.98, shade (0.93,@base_color), @selected_bg_color)
+
+# Uncomment one or both of the following for flat/unified menus or toolbars:
+	#GtkToolbar::shadow-type		= GTK_SHADOW_NONE  # Makes toolbars flat and unified.
+	GtkMenuBar::shadow-type		= GTK_SHADOW_NONE  # Makes menus flat and unified.
+
+	####################
+	# Color Definitions
+	####################
+	fg[NORMAL]        = @fg_color 
+	fg[PRELIGHT]      = @fg_color
+	fg[SELECTED]      = @selected_fg_color
+	fg[ACTIVE]        = @fg_color
+	fg[INSENSITIVE]   = darker (@bg_color)
+
+	bg[NORMAL]        = @bg_color
+	bg[PRELIGHT]      = shade (1.02, @bg_color)
+	bg[SELECTED]	  = @selected_bg_color  # Color for selected items.
+	bg[INSENSITIVE]   = @bg_color
+	bg[ACTIVE]        = shade (0.85, @bg_color)
+
+	base[NORMAL]      = @base_color
+	base[PRELIGHT]    = shade (0.95, @bg_color)
+	base[ACTIVE]      = shade (0.80, @bg_color)
+	base[SELECTED]    = @selected_bg_color  # Color for selected base items.
+	base[INSENSITIVE] = @bg_color
+
+	text[NORMAL]      = @text_color
+	text[PRELIGHT]    = @text_color
+	text[ACTIVE]      = @selected_fg_color
+	text[SELECTED]    = @selected_fg_color
+	text[INSENSITIVE] = darker (@bg_color)
+
+
+	engine "murrine" 
+	{
+		animation           = TRUE  # FALSE = disabled, TRUE = enabled
+		colorize_scrollbar  = TRUE   # FALSE = disabled, TRUE = enabled
+
+		gradients           = TRUE   # FALSE = disabled, TRUE = enabled
+		glazestyle          = 0      # 0 = flat highlight, 1 = curved highlight, 2 = concave style, 3 = top curved highlight, 4 = beryl highlight
+		highlight_shade     = 1.0    # set highlight amount for buttons or widgets
+		gradient_shades     = {1.4,1.1,1.0,1.2} # default: {1.1,1.0,1.0,1.1}
+
+
+		contrast            = 1.2 #1.0    # 0.8 for less contrast, more than 1.0 for more contrast on borders
+		roundness           = 2    # 0 = squared, 1 = old default, more will increase roundness
+
+		lightborderstyle    = 0      # 0 = lightborder on top side, 1 = lightborder on all sides
+		lightborder_shade   = 1.15   # sets lightborder amount for buttons or widgets
+		reliefstyle	    = 1     # 0 = flat, 1 = inset, 2 = shadow
+
+
+		listviewheaderstyle = 1     # 0 = flat, 1 = glassy, 2 = raised
+		listviewstyle       = 1     # 0 = nothing, 1 = dotted
+
+		menubaritemstyle    = 1     # 0 = menuitem look, 1 = button look
+		menubarstyle        = 0     # 0 = flat, 1 = glassy, 2 = gradient, 3 = striped
+		menuitemstyle       = 1     # 0 = flat, 1 = glassy, 2 = striped
+		menustyle           = 1     # 0 = no vertical menu stripe, 1 = display vertical menu stripe
+
+
+		rgba		    = TRUE  # FALSE = disabled, TRUE = enabled
+
+
+		scrollbarstyle      = 2     # 0 = nothing, 1 = circles, 2 = handles, 3 = diagonal stripes, 4 = diagonal stripes and handles, 5 = horizontal stripes, 6 = horizontal stripes and handles
+		sliderstyle         = 0    # 0 = nothing added, 1 = handles
+		stepperstyle        = 1     # 0 = standard, 1 = integrated stepper handles, 2 = unknown
+		toolbarstyle	    = 1     # 0 = flat, 1 = glassy, 2 = gradient
+
+
+	}
+
+}
+
+#################
+# THEME MODULES 
+#################
+
+style "panel-bg"
+{
+
+	# panel background
+
+	bg_pixmap[NORMAL]="bg.png"
+	bg_pixmap[ACTIVE]="bg.png"
+	bg_pixmap[SELECTED]="bg.png"
+	bg_pixmap[PRELIGHT]="bg.png"
+	bg_pixmap[INSENSITIVE]="bg.png"
+
+	bg[NORMAL]	  = shade (0.3,@bg_color)
+	bg[ACTIVE]	  = shade (0.5,@bg_color)
+	bg[PRELIGHT]	  = shade (0.6,@bg_color)
+
+}
+
+
+style "panel-button"
+{
+
+	bg[NORMAL]	= mix(0.93,shade (0.94, @bg_color),@selected_bg_color) 
+	bg[PRELIGHT]	= mix(0.93,shade (0.98, @bg_color),@selected_bg_color) 
+	bg[ACTIVE]	= mix(0.93,shade (0.80, @bg_color),@selected_bg_color) 
+	bg[INSENSITIVE]	= mix(0.93,shade (0.94, @bg_color),@selected_bg_color) 
+
+	engine "murrine" 
+	{
+
+		glazestyle          = 1    
+		lightborder_shade   = 1.05
+		highlight_shade     = 1.2 
+
+		gradient_shades     = {1.1,1.,0.80,1.0}
+		roundness           = 2
+		contrast 	    = 1.5 #1.3
+
+		reliefstyle	    = 0 
+		lightborderstyle    = 0
+
+
+		glow_shade 	    = 2.0
+		glowstyle 	    = 1
+	}
+
+
+}
+
+
+
+style "evolution-hack" = "murrine-default" # Hacks for Evolution Mail.
+{	
+	bg[NORMAL]	= shade (1.14, @bg_color) # Color for evo treeview headers.
+	bg[PRELIGHT]	= shade (1.18, @bg_color) # Color for evo treeview header prelight.
+	bg[ACTIVE]	= shade (0.80, @bg_color) # Color for unfocused evo selected items.
+	bg[SELECTED]	= @selected_bg_color # Color for evo selected items.
+
+	fg[ACTIVE]      = @selected_fg_color # Color for evo active text.
+	fg[SELECTED]    = @selected_fg_color # Color for evo selected text.
+}
+
+style "murrine-wide"
+{
+	xthickness = 2 # Can't change, or clowns will eat you.
+	ythickness = 2 # Can't change, or clowns will eat you.
+}
+
+style "murrine-wider"
+{
+	xthickness = 3 # Can't change, or clowns will eat you.
+	ythickness = 3 # Can't change, or clowns will eat you.
+}
+
+style "murrine-button" = "murrine-wider"
+{
+	bg[NORMAL]	= mix(0.93,shade (0.94, @bg_color),@selected_bg_color) 
+	bg[PRELIGHT]	= mix(0.93,shade (0.98, @bg_color),@selected_bg_color) 
+	bg[ACTIVE]	= mix(0.93,shade (0.80, @bg_color),@selected_bg_color) 
+	bg[INSENSITIVE]	= mix(0.93,shade (0.94, @bg_color),@selected_bg_color) 
+
+	engine "murrine" 
+	{
+
+		glazestyle          = 1    
+		lightborder_shade   = 1.05
+		highlight_shade     = 1.2 
+
+		gradient_shades     = {1.1,1.,0.80,1.0}
+		roundness           = 15
+		contrast 	    = 1.5 #1.3
+
+		reliefstyle	    = 1 
+		lightborderstyle    = 0
+
+
+		glow_shade 	    = 2.0
+		glowstyle 	    = 1
+	}
+}
+
+style "murrine-notebook-bg"
+{
+	bg[NORMAL]	= mix(0.9,shade (0.92, @bg_color),@selected_bg_color) # Tab background.
+	bg[ACTIVE]	= shade (1.0, @bg_color) # Tab background.
+
+}
+
+style "murrine-notebook" = "murrine-notebook-bg"
+{
+	xthickness = 2 # Width of tabs and notebook borders.
+	ythickness = 2 # Height of tabs and notebook borders.
+
+	engine "murrine" 
+	{
+		gradient_shades     = {0.60,1.1,1.1,1.0} # default: {1.1,1.0,1.0,1.1}
+	}
+}
+
+style "murrine-menu" = "murrine-wide"
+{
+	ythickness = 0
+	xthickness = 2
+
+	bg[NORMAL]	= mix(0.93,@bg_color,@selected_bg_color)
+ 	bg[PRELIGHT] 	= @selected_bg_color
+
+	engine "murrine" 
+	{
+		roundness = 15
+		gradient_shades     = {1.3,1.1,1.0,1.1}
+
+		lightborderstyle    = 1
+		lightborder_shade   = 1.35   # sets lightborder amount for buttons or widgets
+
+		glow_shade 	    = 1.7
+		glowstyle 	    = 0
+	}
+}
+
+style "murrine-menu-item" = "murrine-wide"
+{
+	xthickness = 2
+
+	bg[NORMAL]	= mix(0.93,@bg_color,@selected_bg_color)
+ 	bg[PRELIGHT] 	= @selected_bg_color
+	engine "murrine" 
+	{
+		roundness = 15
+		gradient_shades     = {1.3,1.1,1.0,1.1}
+
+		lightborderstyle    = 1
+		lightborder_shade   = 1.35   # sets lightborder amount for buttons or widgets
+
+		glow_shade 	    = 1.7
+		glowstyle 	    = 0
+	}
+
+}
+
+
+style "murrine-treeview"
+{
+#	base[ACTIVE]	= shade (0.75, @bg_color)
+}
+
+style "murrine-treeview-header" = "murrine-default"
+{
+	xthickness = 2
+	ythickness = 1
+
+	bg[NORMAL]	= mix(0.9,@bg_color,@selected_bg_color)
+	bg[PRELIGHT]      = mix(0.9,shade (1.02, @bg_color),@selected_bg_color)
+	bg[INSENSITIVE]   = mix(0.9,@bg_color,@selected_bg_color)
+	bg[ACTIVE]        = mix(0.9,shade (0.85, @bg_color),@selected_bg_color)
+
+	engine "murrine" 
+	{
+
+		glazestyle          = 0     # 0 = flat highlight, 1 = curved highlight, 2 = concave style, 3 = top curved highlight, 4 = beryl highlight
+		highlight_shade     = 1.0   # set highlight amount for buttons or widgets
+		gradient_shades     = {0.85,1.0,1.0,0.96}
+		contrast	    = 1.2 #1.0
+
+		glow_shade 	    = 2.0
+		glowstyle 	    = 1
+	}
+}
+
+style "murrine-frame-title"
+{
+	fg[NORMAL]	= lighter (@fg_color)
+}
+
+style "murrine-tooltips" = "murrine-wider"
+{
+	bg[NORMAL]	= @tooltip_bg_color
+	fg[NORMAL]	= @tooltip_fg_color
+}
+
+style "metacity-frame" = "murrine-default"
+{
+	bg[SELECTED]	= shade (0.9, @selected_bg_color)  # Color for metacity borders.
+	bg[ACTIVE]	= mix(0.9,@bg_color, @selected_bg_color)  # Color for metacity borders.
+}
+
+style "murrine-progressbar" 
+{
+	fg[PRELIGHT]	= @selected_fg_color  # Progressbar prelighted text.
+  	bg[NORMAL]	= shade (0.90, @bg_color) # Color for progressbar background.
+
+	xthickness = 0
+	ythickness = 0
+
+  engine "murrine" 
+  {
+	gradient_shades     = {1.2,1.1,0.96,0.85}
+	#gradient_shades	= {1.2,1.1,0.96,1.} # Rendering of gradients.
+	animation	= TRUE 
+
+	lightborder_shade   = 1.65   # sets lightborder amount for buttons or widgets
+	lightborderstyle    = 1
+
+	roundness = 15
+	glow_shade 	    = 1.6
+	glowstyle 	    = 0
+  }
+
+}
+
+style "murrine-statusbar"
+{
+
+}
+
+style "murrine-comboboxentry"
+{
+
+}
+
+style "murrine-spinbutton"
+{
+	bg[ACTIVE]   = shade (0.85, @bg_color)  # Color for pressed-spinbuttons.
+
+}
+
+style "murrine-scale" = "murrine-button"
+{
+	xthickness = 2
+	ythickness = 2
+	GtkRange        ::slider-width = 16
+
+	bg[NORMAL]	= mix(0.93,shade (0.7, @bg_color),@selected_bg_color) # Color for buttons.
+	bg[PRELIGHT]	= mix(0.93,shade (0.8, @bg_color),@selected_bg_color) # Color for button-prelight.
+	bg[ACTIVE]	= mix(0.93,shade (0.76, @bg_color),@selected_bg_color) # Color for pressed-buttons.
+	bg[INSENSITIVE]	= mix(0.93,shade (0.7, @bg_color),@selected_bg_color) # Color for pressed-buttons.
+
+	engine "murrine" 
+	{
+		glazestyle          = 3    # 0 = flat highlight, 1 = curved highlight, 2 =
+		highlight_shade     = 1.1  # set highlight amount for buttons or widgets
+
+		gradient_shades     = {1.64,1.44,1.34,1.54}
+		contrast =1.4 #1.2
+		roundness= 15
+
+		reliefstyle	    = 1
+		lightborderstyle    = 0 
+
+
+		glow_shade 	    = 2.0
+		glowstyle 	    = 1
+	}
+
+}
+
+style "murrine-hscale" = "murrine-scale"
+{
+
+}
+
+style "murrine-vscale" = "murrine-scale"
+{
+
+}
+
+style "murrine-nautilus-location" # Workaround for nautilus' messages.
+{
+	bg[NORMAL]	= shade (1.25, @selected_bg_color)
+
+}
+
+style "murrine-radiocheck" = "murrine-default"
+{
+#	text[NORMAL]	= shade (0.9, @selected_bg_color) # Color for checks/radio items.
+#	bg[SELECTED]	= lighter (@selected_bg_color) # Color for prelight of check/radio buttons.
+}
+
+##############
+# SCROLLBARS
+##############
+
+style "murrine-scrollbar" = "murrine-default"
+{
+
+	bg[NORMAL]	= mix(0.93,shade(1.,@bg_color),@selected_bg_color)
+	bg[PRELIGHT]	= mix(0.93,shade(1.08,@bg_color),@selected_bg_color)
+	bg[ACTIVE]	= mix(0.93,shade(0.86,@bg_color),@selected_bg_color)
+	bg[INSENSITIVE]	= mix(0.93,shade(1.,@bg_color),@selected_bg_color)
+
+	xthickness = 0
+	ythickness = 0
+
+	engine "murrine" 
+	{
+		contrast=1.3 
+		gradient_shades     = {1.2,1.1,0.96,1.}
+
+		lightborder_shade   = 1.65   # sets lightborder amount for buttons or widgets
+		lightborderstyle    = 1
+
+		glow_shade 	    = 1.6
+		glowstyle 	    = 0
+
+		roundness = 15
+	}
+
+}
+
+style "murrine-hscrollbar" = "murrine-scrollbar"
+{
+}
+
+style "murrine-vscrollbar" = "murrine-scrollbar"
+{
+}
+
+############
+# TOOLBARS
+############
+
+style "murrine-toolbar" = "murrine-default"
+{
+
+	bg[NORMAL]	= shade (1.0, @bg_color) 
+	bg[PRELIGHT]	= shade (1.0, @bg_color) 
+	bg[ACTIVE]	= shade (1.0, @bg_color) 
+	bg[INSENSITIVE]	= shade (1.0, @bg_color) 
+
+	engine "murrine" 
+	{
+		highlight_shade     = 1.0  # set highlight amount for buttons or widgets
+		gradient_shades     = {1.0,0.95,0.95,0.88}
+		contrast =1.2 #1.1
+	}
+
+}
+
+style "murrine-evo-new-button-workaround"
+{
+/*	bg[NORMAL]   = shade (0.965, @bg_color)
+	engine "murrine"
+	{
+		toolbarstyle = 0
+	}
+*/
+}
+
+
+
+###############################################################################
+# The following part of the gtkrc applies the different styles to the widgets.
+###############################################################################
+
+# murrine default style is applied to every widget.
+class "GtkWidget"    style "murrine-default"
+
+# Increase the x/ythickness in some widgets.
+class "GtkFrame"     style "murrine-wide"
+class "GtkEntry"     style "murrine-wider"
+class "MetaFrames"   style "metacity-frame"
+class "GtkSeparator" style "murrine-wide"
+class "GtkWindow"    style "metacity-frame"
+class "GtkCalendar"  style "murrine-wide"
+
+class "GtkSpinButton"  style "murrine-spinbutton"
+class "GtkScale"       style "murrine-scale"
+class "GtkVScale"      style "murrine-vscale"
+class "GtkHScale"      style "murrine-hscale"
+class "GtkScrollbar"   style "murrine-scrollbar"
+class "GtkVScrollbar"  style "murrine-vscrollbar"
+class "GtkHScrollbar"  style "murrine-hscrollbar"
+
+class "GtkRadio*"	style "murrine-radiocheck"
+class "GtkCheck*"	style "murrine-radiocheck"
+
+class "GtkToolbar"   style "murrine-toolbar" 
+class "GtkHandleBox" style "murrine-toolbar"
+
+widget_class "EShellWindow.GtkVBox.BonoboDock.BonoboDockBand.BonoboDockItem*" style "murrine-evo-new-button-workaround"
+
+# General matching following, the order is choosen so that the right styles override each other eg. progressbar needs to be more important then the menu match.
+
+# This is not perfect, it could be done better (That is modify *every* widget in the notebook, and change those back that we really don't want changed)
+widget_class "*Panel*"      style "panel-bg"
+class "*Panel*"      	    style "panel-bg"
+
+widget_class "*<GtkButton>"      style "murrine-button"
+widget_class "*Panel*.*<GtkButton>*"  style "panel-button"
+
+widget_class "*<GtkNotebook>*<GtkEventBox>"     style "murrine-notebook-bg"
+widget_class "*<GtkNotebook>*<GtkDrawingArea>"  style "murrine-notebook-bg"
+widget_class "*<GtkNotebook>*<GtkLayout>"       style "murrine-notebook-bg"
+widget_class "*.GtkNotebook.*.GtkViewport"	style "murrine-notebook"
+
+
+
+widget_class "*<GtkNotebook>"    style "murrine-notebook"
+widget_class "*<GtkStatusbar>*"  style "murrine-statusbar"
+
+widget_class "*<GtkComboBoxEntry>*" style "murrine-comboboxentry"
+widget_class "*<GtkCombo>*"         style "murrine-comboboxentry"
+
+widget_class "*<GtkMenu>*"              style "murrine-menu"
+widget_class "*<GtkMenuItem>*"          style "murrine-menu-item"
+
+
+widget_class "*.<GtkFrame>.<GtkLabel>" style "murrine-frame-title"
+widget_class "*.<GtkTreeView>*"        style "murrine-treeview"
+
+widget_class "*<GtkProgressBar>"       style "murrine-progressbar"
+
+# Treeview header
+widget_class "*.<GtkTreeView>.<GtkButton>" style "murrine-treeview-header"
+widget_class "*.<GtkCTree>.<GtkButton>"    style "murrine-treeview-header"
+widget_class "*.<GtkList>.<GtkButton>"     style "murrine-treeview-header"
+widget_class "*.<GtkCList>.<GtkButton>"    style "murrine-treeview-header"
+
+# Workarounds for Evolution
+widget_class "*.ETable.ECanvas"    style "murrine-treeview-header"
+widget_class "*.ETree.ECanvas"    style "murrine-treeview-header"
+widget_class "*GtkCTree*"	style "evolution-hack"
+widget_class "*GtkList*"	style "evolution-hack"
+widget_class "*GtkCList*"	style "evolution-hack"
+widget_class "*.ETree.*"	style "evolution-hack"
+widget_class "*EInfoLabel*"	style "evolution-hack"
+
+# The window of the tooltip is called "gtk-tooltip"
+################################
+# FIXME:
+# This will not work if one embeds eg. a button into the tooltip.
+# As far as I can tell right now we will need to rework the theme
+# quite a bit to get this working correctly.
+# (It will involve setting different priorities, etc.)
+################################
+widget "gtk-tooltip*" style "murrine-tooltips"
+
+

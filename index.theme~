@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Classic
+Type=X-GNOME-Metatheme
+Name[es_ES]=Classic
+
+[X-GNOME-Metatheme]
+Name=Classic
+Encoding=UTF-8
+GtkTheme=Classic
+MetacityTheme=Classic
+Icons=GNOME-Wise
